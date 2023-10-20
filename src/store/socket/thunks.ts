@@ -7,11 +7,13 @@ export const getSocketConnection = createAppAsyncThunk(
     console.log(ws, "response");
 
     ws.onopen = function () {
-      // ws.send("open"); // this works
+      ws.send(
+        JSON.stringify({
+          method: "sub_to_price_info",
+        })
+      ); // this works
     };
-    ws.onmessage = function (event) {
-      alert("Message received..." + event.data);
-    };
+    ws.onmessage = function (event) {};
 
     // return ws;
   }

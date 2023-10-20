@@ -24,8 +24,6 @@ httpService.interceptors.request.use(async (config) => {
 
 httpService.interceptors.response.use(
   function (response) {
-    console.log(response);
-
     return response;
   },
   function (error) {
