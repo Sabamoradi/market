@@ -1,11 +1,13 @@
 import generalReducer from "./general/slice";
 import marketReducer from "./market/slice";
+import socketReducer from './socket/slice'
 import { Action, ThunkAction, configureStore } from "@reduxjs/toolkit";
 
 export const store = configureStore({
   reducer: {
     general: generalReducer,
     market: marketReducer,
+    socket:socketReducer
   },
 });
 

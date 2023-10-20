@@ -1,29 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
-import { getMarketDataThunk } from "./thunks";
+import { getSocketConnection } from "./thunks";
 
 
-export interface State {
-  marketData: any;
-}
 
-const initialState: State = {
-  marketData: null,
+
+const initialState = {
+  socketData: null,
 };
-export const marketSlice = createSlice({
-  name: "market",
+export const socketSlice = createSlice({
+  name: "socket",
   initialState,
   reducers: {},
   extraReducers(builder) {
-    builder.addCase(getMarketDataThunk.fulfilled, (state, action) => {
-      state.marketData = action.payload;
+    builder.addCase(getSocketConnection.fulfilled, (state, action) => {
+      console.log(action);
+      
     });
   },
 });
 
-export const selectMarketData = (state: RootState) => state.market.marketData;
+export const selectSocketConnection = (state: RootState) => state.socket.socketData;
 
-export default marketSlice.reducer;
+export default socketSlice.reducer;
 
 
 
